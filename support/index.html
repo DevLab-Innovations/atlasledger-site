@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Atlas Ledger</title>
+  <meta name="description" content="Get help with Atlas Ledger. FAQs, contact options, and documentation.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="white" fill-opacity=".15"/>
+      <path d="M14 6L20 10V18L14 22L8 18V10L14 6Z" stroke="white" stroke-width="1.5" fill="none"/>
+      <path d="M11 14h6M14 11v6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Atlas Ledger
+  </a>
+  <div class="nav-links">
+    <a href="../support/index.html">Support</a>
+    <a href="../privacy/index.html">Privacy</a>
+    <a href="../terms/index.html">Terms</a>
+    <a href="../index.html#download" class="nav-cta">Download Free</a>
+  </div>
+</nav>
+
+<section class="hero" style="padding:48px 24px 60px">
+  <h1 style="font-size:clamp(1.8rem,4vw,2.6rem)">How can we help?</h1>
+  <p>Find answers below or reach out directly. We respond to all inquiries.</p>
+</section>
+
+<div class="container" style="padding:0 24px 80px">
+
+  <div class="support-grid">
+    <div class="support-card">
+      <div class="icon">🐛</div>
+      <h3>Report a Bug</h3>
+      <p>Found an issue? Open a GitHub issue with steps to reproduce and your iOS version.</p>
+      <a href="https://github.com/DevLabInnovations/AtlasLedger/issues/new?template=bug_report.md">Open GitHub Issue →</a>
+    </div>
+    <div class="support-card">
+      <div class="icon">💡</div>
+      <h3>Feature Request</h3>
+      <p>Have an idea that would make Atlas Ledger better? We'd love to hear it.</p>
+      <a href="https://github.com/DevLabInnovations/AtlasLedger/issues/new?template=feature_request.md">Submit a Request →</a>
+    </div>
+    <div class="support-card">
+      <div class="icon">💬</div>
+      <h3>General Questions</h3>
+      <p>Questions about the app, subscriptions, or your data? Email us directly.</p>
+      <a href="mailto:support@atlas-ledger.com">support@atlas-ledger.com</a>
+    </div>
+    <div class="support-card">
+      <div class="icon">🔒</div>
+      <h3>Privacy Concerns</h3>
+      <p>Questions about data handling, privacy policy, or security? Contact our privacy team.</p>
+      <a href="mailto:privacy@atlasledger.app">privacy@atlasledger.app</a>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2 style="font-size:1.6rem;font-weight:700;margin-bottom:8px">Frequently Asked Questions</h2>
+    <p style="color:var(--text-muted);margin-bottom:32px">Quick answers to common questions.</p>
+
+    <div class="faq-item">
+      <h3>Where is my data stored?</h3>
+      <p>All your data is stored locally on your iPhone in a SQLite database protected by iOS Data Protection (AES-256 encryption). Nothing is sent to external servers unless you explicitly enable iCloud Sync or use the Accountant Sharing feature.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I restore a cancelled subscription?</h3>
+      <p>Go to <strong>Settings → Subscription → Restore Purchases</strong> inside the app. This will restore any active subscriptions tied to your Apple ID without charging you again.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I cancel my subscription?</h3>
+      <p>Go to <strong>iOS Settings → Apple ID → Subscriptions → Atlas Ledger</strong> and tap Cancel. You can also manage it directly from <strong>Atlas Ledger Settings → Manage Subscription</strong>. Your access continues until the end of the current billing period.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I switched to a new iPhone — how do I transfer my data?</h3>
+      <p>Use Apple's device transfer process (Quick Start or iCloud Backup/Restore) — this transfers the entire app including your SQLite database. Alternatively, enable <strong>iCloud Sync</strong> in Settings before switching; your data will sync to the new device automatically.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does receipt scanning require an internet connection?</h3>
+      <p>No. Receipt scanning uses on-device OCR and Core ML models that run entirely offline. No image data is ever sent to a server.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Can I export my data?</h3>
+      <p>Yes. Go to <strong>Reports → Export</strong> to export your expenses as CSV or PDF. All exports are generated locally on your device.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What is the Accountant Sharing feature?</h3>
+      <p>Accountant Sharing lets you create an encrypted, time-limited link to share a snapshot of your expenses with your accountant or bookkeeper. The data is encrypted on your device using AES-256-GCM before upload — our server only holds encrypted ciphertext and never has your decryption key.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>The app is asking for Location permission — why?</h3>
+      <p>Location access is optional and only used for <strong>GPS live trip tracking</strong> (a Premium feature). If you prefer manual mileage entry, you can deny location permission and enter mileage manually. You can change this anytime in iOS Settings → Privacy &amp; Security → Location Services → Atlas Ledger.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I delete all my data?</h3>
+      <p>You can delete individual records from within the app. To delete all app data permanently, uninstall Atlas Ledger from your iPhone — this removes the local database and all associated files. If you have iCloud Sync enabled, you can also delete the iCloud data from <strong>Settings → iCloud Sync → Delete iCloud Data</strong>.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>I'm getting a "Cannot restore purchases" error</h3>
+      <p>Make sure you're signed into the same Apple ID that made the original purchase. Check your internet connection, then try again from <strong>Settings → Subscription → Restore Purchases</strong>. If the issue persists, contact Apple Support or email us at <a href="mailto:support@atlas-ledger.com">support@atlas-ledger.com</a>.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Atlas Ledger</div>
+      <div style="margin-top:4px">© 2026 Atlas Ledger. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="../privacy/index.html">Privacy Policy</a>
+      <a href="../terms/index.html">Terms of Service</a>
+      <a href="../support/index.html">Support</a>
+      <a href="https://github.com/DevLabInnovations/AtlasLedger">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

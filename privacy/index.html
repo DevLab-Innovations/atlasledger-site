@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Atlas Ledger</title>
+  <meta name="description" content="Atlas Ledger Privacy Policy. All your financial data stays on your device. We collect nothing.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="white" fill-opacity=".15"/>
+      <path d="M14 6L20 10V18L14 22L8 18V10L14 6Z" stroke="white" stroke-width="1.5" fill="none"/>
+      <path d="M11 14h6M14 11v6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Atlas Ledger
+  </a>
+  <div class="nav-links">
+    <a href="../support/index.html">Support</a>
+    <a href="../privacy/index.html">Privacy</a>
+    <a href="../terms/index.html">Terms</a>
+    <a href="../index.html#download" class="nav-cta">Download Free</a>
+  </div>
+</nav>
+
+<div class="legal">
+  <h1>Privacy Policy</h1>
+  <div class="updated">Last Updated: April 15, 2026</div>
+
+  <div class="summary-box">
+    <p><strong>The short version:</strong> All your financial data stays on your device by default. We collect nothing. No analytics, no tracking, no third-party SDKs. Optional iCloud sync and accountant sharing are opt-in and encrypted.</p>
+  </div>
+
+  <hr>
+
+  <h2>Data Collection</h2>
+  <h3>Information You Provide</h3>
+  <p>Atlas Ledger is a <strong>local-first</strong> application. All data is stored on your device by default. The only exceptions are optional iCloud sync (encrypted, user-controlled) and optional accountant share links (zero-knowledge encrypted). Data you have not explicitly chosen to share is <strong>never</strong> transmitted to external servers:</p>
+  <ul>
+    <li><strong>Expense Records:</strong> Amount, merchant, category, date, notes, payment method</li>
+    <li><strong>Receipt Images:</strong> Photos captured or selected from your photo library</li>
+    <li><strong>Mileage Tracking:</strong> Trip start/end locations, distance, date, purpose</li>
+    <li><strong>Income Records:</strong> Amount, source, category, date, recurring frequency</li>
+    <li><strong>Bill Records:</strong> Bill name, amount, due date, category, payment history</li>
+    <li><strong>Account Information:</strong> Account names, balances (all stored locally)</li>
+    <li><strong>Savings Goals:</strong> Goal names, target amounts, contributions</li>
+    <li><strong>Voice Memos:</strong> Audio recordings attached to expenses, stored as .m4a files locally</li>
+    <li><strong>Speech Transcripts:</strong> Text transcribed from voice dictation, stored with the associated expense</li>
+    <li><strong>Pay Schedule:</strong> Pay frequency and anchor date used for budget planning</li>
+    <li><strong>AI Correction Feedback:</strong> Local corrections to on-device AI suggestions (never synced)</li>
+    <li><strong>Attached Documents:</strong> PDFs and images stored in the app's local documents directory, encrypted using iOS Data Protection</li>
+  </ul>
+
+  <h3>Information We Do NOT Collect</h3>
+  <ul>
+    <li>We do not collect personally identifiable information</li>
+    <li>We do not track your usage or analytics</li>
+    <li>We do not have access to your financial data</li>
+    <li>We do not share data with third parties</li>
+    <li>We do not use advertising or tracking SDKs</li>
+  </ul>
+
+  <hr>
+
+  <h2>Data Protection &amp; Security</h2>
+  <h3>Encryption at Rest</h3>
+  <p><strong>All financial data in Atlas Ledger is encrypted at rest using iOS Data Protection.</strong> The protection level is <code>NSFileProtectionCompleteUntilFirstUserAuthentication</code> — iOS hardware encryption applied to all app files. Encryption keys are derived from your device passcode and the device's Secure Enclave.</p>
+  <p>This protects: the SQLite database, receipt images, mileage history, income records, bill records, account balances, voice memos, speech transcripts, pay schedule data, and all attached documents.</p>
+
+  <h3>Subscription Status (iOS Keychain)</h3>
+  <p>Your Pro subscription status (tier and expiration date) is cached in the iOS Keychain — a secure, encrypted storage managed by iOS, inaccessible to other apps. Atlas Ledger stores only the resulting tier status; your payment card details are handled entirely by Apple and never reach the app.</p>
+
+  <hr>
+
+  <h2>Data Storage</h2>
+  <h3>Local Storage Only</h3>
+  <p>All data is stored exclusively on your device using:</p>
+  <ul>
+    <li><strong>SQLite Database:</strong> Encrypted expense, mileage, account, income, bill, pay schedule, and transcript data</li>
+    <li><strong>File System:</strong> Encrypted receipt images, voice memo recordings (.m4a), and attached documents</li>
+    <li><strong>iOS Keychain:</strong> Pro subscription tier and expiration date (encrypted by iOS)</li>
+    <li><strong>AsyncStorage:</strong> On-device AI correction feedback — stored locally only, never synced</li>
+    <li><strong>App Cache Directory:</strong> Core ML model files — deletable by clearing app cache</li>
+  </ul>
+
+  <h3>iCloud Sync (Optional)</h3>
+  <p>Atlas Ledger supports optional iCloud sync, available to all users at no cost. When enabled in Settings → iCloud Sync, your data is synced via Apple's CloudKit infrastructure. Data is encrypted in transit and at rest by Apple. Sync is opt-in and can be disabled at any time.</p>
+
+  <h3>Accountant Sharing (Optional)</h3>
+  <p>When you use the Share feature to send a report to your accountant:</p>
+  <ul>
+    <li>A snapshot of the selected data is <strong>encrypted on your device</strong> using AES-256-GCM before any data leaves the app</li>
+    <li>The encrypted snapshot is uploaded to <strong>atlasledger.live</strong> solely to host it for the recipient</li>
+    <li>The decryption key is embedded in the share link and is <strong>never transmitted to our server</strong> (zero-knowledge architecture)</li>
+    <li>Share links expire after the duration you choose (default: 7 days) and can be revoked at any time</li>
+  </ul>
+  <p><strong>If you do not use the Share feature, no data is ever uploaded to atlasledger.live.</strong></p>
+
+  <hr>
+
+  <h2>Permissions</h2>
+  <h3>Camera &amp; Photo Library (Optional)</h3>
+  <p>Used to capture or select receipt photos. Photos are stored locally and encrypted. Never uploaded to external servers.</p>
+
+  <h3>Microphone (Optional)</h3>
+  <p>Used to record voice memos attached to expenses. Recordings are saved as encrypted .m4a files locally, capped at 2 minutes, and never transmitted.</p>
+
+  <h3>Speech Recognition (Optional)</h3>
+  <p>Uses Apple's on-device speech recognizer (SFSpeechRecognizer) in on-device mode — no audio is sent to Apple's servers. Transcripts are stored locally.</p>
+
+  <h3>Location (Optional — Premium Only)</h3>
+  <p>Used for automatic mileage tracking during trips. Location data is stored locally and encrypted. Background location is used only when actively tracking a trip.</p>
+
+  <hr>
+
+  <h2>On-Device AI Features</h2>
+  <p>Atlas Ledger uses on-device Core ML models for receipt field extraction, voice commands, and natural language queries. <strong>No receipt images, voice audio, query text, or expense data is transmitted to any server for ML processing.</strong> All inference runs entirely on your device. These features are optional and can be disabled in Settings → Intelligence.</p>
+
+  <hr>
+
+  <h2>Third-Party Services</h2>
+  <h3>Apple StoreKit 2</h3>
+  <p>Subscriptions are processed entirely by Apple. Atlas Ledger never receives or stores your payment card details. We receive only the resulting tier status (free or Pro).</p>
+  <h3>FinanceKit (Optional)</h3>
+  <p>When you enable FinanceKit integration, data is requested directly from Apple's FinanceKit API. Imported transactions are stored locally and encrypted.</p>
+  <h3>TestFlight Beta</h3>
+  <p>Crash logs may be sent to Apple for debugging. Crash reports do not contain your expense data.</p>
+
+  <hr>
+
+  <h2>Children's Privacy</h2>
+  <p>Atlas Ledger is not intended for users under 13. We do not knowingly collect data from children.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>Material changes will be communicated via the App Store release notes. The "Last Updated" date will be updated at the top of this document.</p>
+
+  <h2>Your Rights</h2>
+  <ul>
+    <li><strong>Access:</strong> View all data stored in the app</li>
+    <li><strong>Export:</strong> Export data to CSV or PDF</li>
+    <li><strong>Delete:</strong> Permanently delete expenses, receipts, or all data</li>
+    <li><strong>Control:</strong> Manage permissions in iOS Settings</li>
+  </ul>
+
+  <h2>Contact Us</h2>
+  <p>For privacy questions: <a href="mailto:privacy@atlasledger.app">privacy@atlasledger.app</a></p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Atlas Ledger</div>
+      <div style="margin-top:4px">© 2026 Atlas Ledger. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="../privacy/index.html">Privacy Policy</a>
+      <a href="../terms/index.html">Terms of Service</a>
+      <a href="../support/index.html">Support</a>
+      <a href="https://github.com/DevLabInnovations/AtlasLedger">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

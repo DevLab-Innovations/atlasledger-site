@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Ledger — Local-First Expense Tracker for iOS</title>
+  <meta name="description" content="Track expenses, mileage, and income privately on your iPhone. All data stays on your device. No accounts. No ads.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+      <rect width="28" height="28" rx="7" fill="white" fill-opacity=".15"/>
+      <path d="M14 6L20 10V18L14 22L8 18V10L14 6Z" stroke="white" stroke-width="1.5" fill="none"/>
+      <path d="M11 14h6M14 11v6" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    Atlas Ledger
+  </a>
+  <div class="nav-links">
+    <a href="support/index.html">Support</a>
+    <a href="privacy/index.html">Privacy</a>
+    <a href="terms/index.html">Terms</a>
+    <a href="#download" class="nav-cta">Download Free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.5 3 3.5.5-2.5 2.5.5 3.5L7 9 4 10.5l.5-3.5L2 4.5l3.5-.5L7 1z" fill="white"/></svg>
+    100% Local-First · No Ads · No Tracking
+  </div>
+  <h1>Your Finances.<br>Your Device. Your Privacy.</h1>
+  <p>Atlas Ledger is a powerful expense tracker that stores everything on your iPhone — no accounts, no cloud required.</p>
+  <div class="hero-actions">
+    <a href="#download" class="btn-appstore" id="download">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.78 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5M13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/></svg>
+      <span>
+        <span class="btn-appstore-sub">Download on the</span>
+        App Store
+      </span>
+    </a>
+    <a href="#features" class="btn-learn">Explore Features</a>
+  </div>
+
+  <!-- Phone mockup -->
+  <div class="phone-wrap">
+    <div class="phone-shell">
+      <div class="phone-screen">
+        <div class="phone-notch"></div>
+        <div class="phone-widgets">
+          <div class="pw pw-green">
+            <div class="pw-label">Income</div>
+            <div class="pw-value">$4,280</div>
+            <div class="pw-bar"><div class="pw-bar-fill" style="width:70%"></div></div>
+          </div>
+          <div class="pw">
+            <div class="pw-label">Expenses</div>
+            <div class="pw-value">$1,940</div>
+            <div class="pw-bar"><div class="pw-bar-fill" style="width:45%"></div></div>
+          </div>
+          <div class="pw full">
+            <div class="pw-label">Mileage This Month</div>
+            <div class="pw-value">342 mi · $213 deduction</div>
+            <div class="pw-bar"><div class="pw-bar-fill" style="width:55%"></div></div>
+          </div>
+          <div class="pw full">
+            <div class="pw-label">Quick Actions</div>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <div style="background:rgba(255,255,255,.15);border-radius:8px;padding:6px 10px;font-size:.6rem;color:#fff">+ Expense</div>
+              <div style="background:rgba(255,255,255,.15);border-radius:8px;padding:6px 10px;font-size:.6rem;color:#fff">+ Income</div>
+              <div style="background:rgba(255,255,255,.15);border-radius:8px;padding:6px 10px;font-size:.6rem;color:#fff">Start Trip</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section section-center" id="features">
+  <div class="container">
+    <div class="section-eyebrow">Features</div>
+    <h2>Everything you need to stay on top of your finances</h2>
+    <p class="section-sub">Built for individuals, freelancers, and small business owners who value privacy.</p>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <h3>Receipt Scanning</h3>
+        <p>Snap a photo and let on-device OCR extract the merchant, amount, date, and category automatically. No cloud processing — ever.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚗</div>
+        <h3>Mileage Tracking</h3>
+        <p>Tap to start a trip and GPS logs your route automatically. Get IRS mileage deduction estimates at tax time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3>Income & Expense</h3>
+        <p>Track both sides of your cash flow with categories, recurring entries, and split transactions for detailed reporting.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h3>Bill Tracking</h3>
+        <p>Never miss a payment. Track upcoming and overdue bills with due-date reminders and payment history.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Spending Charts</h3>
+        <p>Radial bar rings visualize your category spending at a glance. Filter by time period to spot trends.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>iCloud Sync</h3>
+        <p>Optionally sync across your Apple devices for free via iCloud. Data is encrypted in transit and at rest by Apple.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>On-Device AI</h3>
+        <p>Core ML models suggest categories and extract receipt data entirely on your device. Nothing leaves your phone.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📤</div>
+        <h3>Accountant Sharing</h3>
+        <p>Share encrypted snapshots with your accountant via a link. Zero-knowledge: our server never holds your decryption key.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🗓️</div>
+        <h3>Pay Period Budgeting</h3>
+        <p>Align budgets to your actual pay schedule. See exactly how much is left before your next paycheck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY CALLOUT -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="privacy-callout">
+      <h2>Privacy by Design</h2>
+      <p>Atlas Ledger was built local-first from day one. Your financial data is too sensitive to live on someone else's server.</p>
+      <div class="privacy-pills">
+        <span class="privacy-pill">🔒 No accounts required</span>
+        <span class="privacy-pill">📵 No analytics or tracking</span>
+        <span class="privacy-pill">🏠 All data on your device</span>
+        <span class="privacy-pill">🔐 AES-256 encryption at rest</span>
+        <span class="privacy-pill">🤫 No third-party SDKs</span>
+        <span class="privacy-pill">🍎 Payments via Apple only</span>
+      </div>
+      <br>
+      <a href="privacy/index.html" style="color:rgba(255,255,255,.8);font-size:.9rem;">Read our full Privacy Policy →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-center" id="pricing">
+  <div class="container">
+    <div class="section-eyebrow">Pricing</div>
+    <h2>Start free, upgrade when you're ready</h2>
+    <p class="section-sub">Premium unlocks unlimited accounts, GPS trip tracking, AI features, and more.</p>
+    <div class="pricing">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-desc">Everything you need to get started</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Expense &amp; income tracking</li>
+          <li><span class="check">✓</span> Receipt scanning (OCR)</li>
+          <li><span class="check">✓</span> Manual mileage logging</li>
+          <li><span class="check">✓</span> Bill tracking</li>
+          <li><span class="check">✓</span> Category spending charts</li>
+          <li><span class="check">✓</span> iCloud sync (free)</li>
+          <li><span class="check">✓</span> CSV &amp; Excel export</li>
+          <li><span class="check">✓</span> 3 AI queries / month</li>
+        </ul>
+        <a href="#download" class="btn-plan btn-plan-secondary">Download Free</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Most Popular</div>
+        <div class="plan-name">Premium</div>
+        <div class="plan-price">$14.99<span>/mo</span></div>
+        <div class="plan-desc">$149.99/yr · 30-day free trial</div>
+        <ul class="plan-features">
+          <li><span class="check">✓</span> Everything in Free</li>
+          <li><span class="check">✓</span> Unlimited accounts</li>
+          <li><span class="check">✓</span> GPS live trip tracking</li>
+          <li><span class="check">✓</span> Unlimited AI queries</li>
+          <li><span class="check">✓</span> Cash flow dashboard</li>
+          <li><span class="check">✓</span> Quarterly tax estimates</li>
+          <li><span class="check">✓</span> Document Wallet</li>
+          <li><span class="check">✓</span> Peer Sharing included</li>
+          <li><span class="check">✓</span> Tax-ready PDF exports</li>
+          <li><span class="check">✓</span> Financial projections</li>
+        </ul>
+        <a href="#download" class="btn-plan btn-plan-primary">Start Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Atlas Ledger</div>
+      <div style="margin-top:4px">© 2026 Atlas Ledger. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="privacy/index.html">Privacy Policy</a>
+      <a href="terms/index.html">Terms of Service</a>
+      <a href="support/index.html">Support</a>
+      <a href="https://github.com/DevLabInnovations/AtlasLedger">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
