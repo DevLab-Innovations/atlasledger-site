@@ -128,55 +128,15 @@ a:hover { text-decoration: underline; }
 /* ── PHONE MOCKUP ───────────────────────────────────────────── */
 .phone-wrap {
   margin: 48px auto 0;
-  max-width: 240px;
+  max-width: 260px;
   position: relative;
+  filter: drop-shadow(0 32px 64px rgba(0,0,0,.45));
 }
-.phone-shell {
-  background: #111;
-  border-radius: 38px;
-  padding: 14px;
-  box-shadow: 0 30px 80px rgba(0,0,0,.5), inset 0 0 0 2px #333;
+.phone-screenshot {
+  width: 100%;
+  border-radius: 44px;
+  display: block;
 }
-.phone-screen {
-  background: linear-gradient(180deg, var(--green-dark) 0%, var(--green) 40%, #F5F5F5 40%);
-  border-radius: 26px;
-  height: 390px;
-  overflow: hidden;
-  position: relative;
-}
-.phone-notch {
-  width: 100px;
-  height: 22px;
-  background: #111;
-  border-radius: 0 0 14px 14px;
-  margin: 0 auto;
-}
-.phone-widgets {
-  padding: 12px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 10px;
-}
-.pw {
-  background: rgba(255,255,255,.12);
-  border-radius: 12px;
-  padding: 12px;
-  color: #fff;
-}
-.pw.full { grid-column: 1/-1; }
-.pw-label { font-size: .55rem; opacity: .7; text-transform: uppercase; letter-spacing: .5px; }
-.pw-value { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
-.pw-sub { font-size: .55rem; opacity: .6; }
-.pw-bar {
-  height: 4px;
-  background: rgba(255,255,255,.15);
-  border-radius: 2px;
-  margin-top: 8px;
-  overflow: hidden;
-}
-.pw-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; }
-.pw-green { background: rgba(255,255,255,.22); }
 
 /* ── SECTION SHELL ──────────────────────────────────────────── */
 .section { padding: 72px 24px; }
