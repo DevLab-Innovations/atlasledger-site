@@ -291,6 +291,10 @@ a:hover { text-decoration: underline; }
 .btn-plan-secondary { background: var(--surface); color: var(--text); border: 1.5px solid var(--border); }
 
 /* ── COMPARE TOGGLE ─────────────────────────────────────────── */
+.compare-toggle-wrap {
+  display: flex;
+  justify-content: center;
+}
 .compare-toggle {
   display: inline-flex;
   align-items: center;
@@ -341,14 +345,32 @@ a:hover { text-decoration: underline; }
 .compare-table thead th:nth-child(3) { color: var(--green); }
 .compare-table tbody tr:hover { background: #FAFFFE; }
 .compare-table tbody tr.group-header td {
-  background: var(--green-light);
+  background: var(--bg);
   color: var(--green-dark);
   font-weight: 700;
-  font-size: .8rem;
+  font-size: .82rem;
   text-transform: uppercase;
-  letter-spacing: .8px;
-  padding: 10px 16px;
+  letter-spacing: 1px;
+  padding: 20px 16px 8px;
   border-bottom: none;
+  border-top: 2px solid var(--green);
+  position: relative;
+}
+/* Left accent bar — gives each group a strong visual anchor */
+.compare-table tbody tr.group-header td:first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--green);
+  border-radius: 0 2px 2px 0;
+}
+/* First group-header has no preceding data rows so suppress the extra gap */
+.compare-table tbody tr.group-header:first-child td {
+  padding-top: 12px;
+  border-top: none;
 }
 .compare-table td:nth-child(2),
 .compare-table td:nth-child(3) { text-align: center; }

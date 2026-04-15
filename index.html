@@ -206,12 +206,14 @@
 <!-- COMPARE -->
 <section class="section section-alt section-center" id="compare">
   <div class="container">
-    <button class="compare-toggle" id="compareToggle" onclick="toggleCompare()" aria-expanded="false" aria-controls="compareTable">
-      <span id="compareToggleLabel">Compare all features</span>
-      <svg id="compareChevron" width="16" height="16" viewBox="0 0 16 16" fill="none" style="transition:transform .25s">
-        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+    <div class="compare-toggle-wrap">
+      <button class="compare-toggle" id="compareToggle" onclick="toggleCompare()" aria-expanded="false" aria-controls="compareTable">
+        <span id="compareToggleLabel">Compare all features</span>
+        <svg id="compareChevron" width="16" height="16" viewBox="0 0 16 16" fill="none" style="transition:transform .25s">
+          <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
     <div id="compareTable" style="display:none;margin-top:32px">
     <div class="compare-wrap">
       <table class="compare-table">
