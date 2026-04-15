@@ -20,7 +20,6 @@
     Atlas Ledger
   </a>
   <div class="nav-links">
-    <a href="#compare">Compare</a>
     <a href="#pricing">Pricing</a>
     <a href="support/index.html">Support</a>
     <a href="privacy/index.html">Privacy</a>
@@ -207,9 +206,13 @@
 <!-- COMPARE -->
 <section class="section section-alt section-center" id="compare">
   <div class="container">
-    <div class="section-eyebrow">Compare Plans</div>
-    <h2>Everything side by side</h2>
-    <p class="section-sub">See exactly what's included in each plan before you download.</p>
+    <button class="compare-toggle" id="compareToggle" onclick="toggleCompare()" aria-expanded="false" aria-controls="compareTable">
+      <span id="compareToggleLabel">Compare all features</span>
+      <svg id="compareChevron" width="16" height="16" viewBox="0 0 16 16" fill="none" style="transition:transform .25s">
+        <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div id="compareTable" style="display:none;margin-top:32px">
     <div class="compare-wrap">
       <table class="compare-table">
         <thead>
@@ -294,8 +297,24 @@
         </tfoot>
       </table>
     </div>
+    </div><!-- /compareTable -->
   </div>
 </section>
+
+<script>
+  function toggleCompare() {
+    var el = document.getElementById('compareTable');
+    var btn = document.getElementById('compareToggle');
+    var label = document.getElementById('compareToggleLabel');
+    var chevron = document.getElementById('compareChevron');
+    var open = el.style.display === 'none';
+    el.style.display = open ? 'block' : 'none';
+    btn.setAttribute('aria-expanded', open);
+    label.textContent = open ? 'Hide feature comparison' : 'Compare all features';
+    chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+    if (open) { document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  }
+</script>
 
 <!-- FOOTER -->
 <footer>
