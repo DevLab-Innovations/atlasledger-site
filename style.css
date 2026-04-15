@@ -430,7 +430,7 @@ footer {
 .legal .summary-box p { color: #1B5E20; margin-bottom: 6px; }
 
 /* ── SUPPORT PAGE ───────────────────────────────────────────── */
-.support-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 20px; margin-top: 40px; }
+.support-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
 .support-card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
