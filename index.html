@@ -165,7 +165,7 @@
           <li><span class="check">✓</span> Cash flow dashboard</li>
           <li><span class="check">✓</span> Quarterly tax estimates</li>
           <li><span class="check">✓</span> Document Wallet</li>
-          <li><span class="check">✓</span> Peer Sharing (add-on)</li>
+          <li><span class="check">✓</span> Peer Sharing (included)</li>
           <li><span class="check">✓</span> Tax-ready PDF exports</li>
           <li><span class="check">✓</span> Financial projections</li>
         </ul>
@@ -174,6 +174,15 @@
     </div>
   </div>
 </section>
+
+<!-- Sticky comparison header — shown when the table header scrolls past the nav -->
+<div id="stickyCompareHeader" aria-hidden="true" style="display:none;position:fixed;top:60px;left:0;right:0;z-index:90;background:var(--surface);border-bottom:2px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <div style="max-width:900px;margin:0 auto;display:flex;padding:0 24px">
+    <div style="flex:1;padding:12px 16px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted)">Feature</div>
+    <div style="min-width:110px;text-align:center;padding:12px 16px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted)">Free</div>
+    <div style="min-width:110px;text-align:center;padding:12px 16px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--green)">⭐ Premium</div>
+  </div>
+</div>
 
 <!-- COMPARE -->
 <section class="section section-alt section-center" id="compare">
@@ -209,18 +218,19 @@
           <tr><td>Number of accounts</td><td><span class="ct-partial">1 account</span></td><td><span class="ct-partial">Up to 5</span></td></tr>
 
           <!-- MILEAGE -->
-          <tr class="group-header"><td colspan="3">Mileage</td></tr>
+          <tr class="group-header"><td colspan="3">Mileage &amp; Trips</td></tr>
           <tr><td>Manual mileage entry</td><td><span class="ct-yes">✓</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>IRS deduction estimates</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>GPS live trip tracking</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>Voice-activated trip start/stop</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
+          <tr><td>Trip voice readouts &amp; audio cues</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
 
           <!-- AI & INTELLIGENCE -->
           <tr class="group-header"><td colspan="3">AI &amp; Intelligence</td></tr>
-          <tr><td>Category suggestions (on-device ML)</td><td><span class="ct-yes">✓</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>Natural language queries</td><td><span class="ct-partial">3 / month</span></td><td><span class="ct-partial">Unlimited</span></td></tr>
           <tr><td>AI receipt field extraction</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
-          <tr><td>Voice command expense entry</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
+          <tr><td>Auto-categorization (AI)</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
+          <tr><td>Voice commands</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>Merchant insights</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
 
           <!-- REPORTS & EXPORT -->
@@ -251,7 +261,7 @@
           <tr class="group-header"><td colspan="3">Sync &amp; Sharing</td></tr>
           <tr><td>iCloud sync across devices</td><td><span class="ct-yes">✓</span></td><td><span class="ct-yes">✓</span></td></tr>
           <tr><td>Encrypted accountant sharing</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
-          <tr><td>Peer Sharing (Viewer / Editor roles)</td><td><span class="ct-partial">Add-on $4.99/mo</span></td><td><span class="ct-partial">Add-on $4.99/mo</span></td></tr>
+          <tr><td>Peer Sharing (Viewer / Editor roles)</td><td><span class="ct-no">—</span></td><td><span class="ct-yes">✓</span></td></tr>
 
           <!-- PRIVACY -->
           <tr class="group-header"><td colspan="3">Privacy &amp; Security</td></tr>
@@ -275,17 +285,39 @@
 </section>
 
 <script>
+  var compareObserver = null;
+
   function toggleCompare() {
     var el = document.getElementById('compareTable');
     var btn = document.getElementById('compareToggle');
     var label = document.getElementById('compareToggleLabel');
     var chevron = document.getElementById('compareChevron');
+    var sticky = document.getElementById('stickyCompareHeader');
     var open = el.style.display === 'none';
     el.style.display = open ? 'block' : 'none';
     btn.setAttribute('aria-expanded', open);
     label.textContent = open ? 'Hide feature comparison' : 'Compare all features';
     chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-    if (open) { document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+
+    if (open) {
+      document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Wire sticky header via IntersectionObserver
+      if ('IntersectionObserver' in window && sticky) {
+        var thead = document.querySelector('.compare-table thead');
+        if (thead) {
+          if (compareObserver) compareObserver.disconnect();
+          compareObserver = new IntersectionObserver(function(entries) {
+            sticky.style.display = entries[0].isIntersecting ? 'none' : 'flex';
+            sticky.style.flexDirection = 'column';
+          }, { rootMargin: '-62px 0px 0px 0px', threshold: 0 });
+          compareObserver.observe(thead);
+        }
+      }
+    } else {
+      // Table hidden — also hide sticky and disconnect observer
+      if (sticky) sticky.style.display = 'none';
+      if (compareObserver) { compareObserver.disconnect(); compareObserver = null; }
+    }
   }
 </script>
 
