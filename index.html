@@ -175,22 +175,11 @@
   </div>
 </section>
 
-<!-- Sticky comparison header — shown when the table header scrolls past the nav -->
-<div id="stickyCompareHeader" aria-hidden="true" style="display:none;position:fixed;top:60px;left:0;right:0;z-index:90;background:var(--surface);border-bottom:2px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">
-  <div style="max-width:900px;margin:0 auto;padding:0 24px">
-    <table style="width:100%;border-collapse:collapse;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;table-layout:fixed">
-      <colgroup id="stickyColgroup">
-        <col id="stickyCol0"><col id="stickyCol1"><col id="stickyCol2">
-      </colgroup>
-      <thead>
-        <tr>
-          <th style="padding:12px 16px;text-align:left;color:var(--text-muted);font-weight:700">Feature</th>
-          <th style="padding:12px 16px;text-align:center;color:var(--text-muted);font-weight:700">Free</th>
-          <th style="padding:12px 16px;text-align:center;color:var(--green);font-weight:700">⭐ Premium</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
+<!-- Sticky comparison header — labels absolutely positioned to match real th rects -->
+<div id="stickyCompareHeader" aria-hidden="true" style="display:none;position:fixed;top:60px;left:0;right:0;height:42px;z-index:90;background:var(--surface);border-bottom:2px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.08)">
+  <span id="stickyLabel0" style="position:absolute;top:0;bottom:0;display:flex;align-items:center;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);padding:0 16px">Feature</span>
+  <span id="stickyLabel1" style="position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted)">Free</span>
+  <span id="stickyLabel2" style="position:absolute;top:0;bottom:0;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--green)">⭐ Premium</span>
 </div>
 
 <!-- COMPARE -->
@@ -297,14 +286,19 @@
   var compareObserver = null;
 
   function syncStickyWidths() {
+    // Position each sticky label to exactly overlay its real <th> using getBoundingClientRect.
+    // This is pixel-perfect regardless of container padding differences.
     var ths = document.querySelectorAll('.compare-table thead th');
-    var cols = [
-      document.getElementById('stickyCol0'),
-      document.getElementById('stickyCol1'),
-      document.getElementById('stickyCol2')
+    var labels = [
+      document.getElementById('stickyLabel0'),
+      document.getElementById('stickyLabel1'),
+      document.getElementById('stickyLabel2')
     ];
     ths.forEach(function(th, i) {
-      if (cols[i]) cols[i].style.width = th.offsetWidth + 'px';
+      if (!labels[i]) return;
+      var r = th.getBoundingClientRect();
+      labels[i].style.left = r.left + 'px';
+      labels[i].style.width = r.width + 'px';
     });
   }
 
@@ -322,7 +316,7 @@
 
     if (open) {
       document.getElementById('compare').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Sync column widths after layout settles, then on resize
+      // Sync label positions after layout settles, then on resize
       setTimeout(syncStickyWidths, 60);
       window.addEventListener('resize', syncStickyWidths);
 
@@ -332,7 +326,10 @@
         if (thead) {
           if (compareObserver) compareObserver.disconnect();
           compareObserver = new IntersectionObserver(function(entries) {
-            sticky.style.display = entries[0].isIntersecting ? 'none' : 'block';
+            var show = !entries[0].isIntersecting;
+            sticky.style.display = show ? 'block' : 'none';
+            // Re-sync on every show in case the page was resized while hidden
+            if (show) syncStickyWidths();
           }, { rootMargin: '-62px 0px 0px 0px', threshold: 0 });
           compareObserver.observe(thead);
         }
